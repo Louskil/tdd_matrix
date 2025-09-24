@@ -1,0 +1,25 @@
+{
+  "type": "module",
+  "name": "tdd_matrix",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "dev": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Louskil/tdd_matrix.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Louskil/tdd_matrix/issues"
+  },
+  "homepage": "https://github.com/Louskil/tdd_matrix#readme",
+  "dependencies": {
+    "chai": "^6.0.1",
+    "mocha": "^11.7.2"
+  }
+}
