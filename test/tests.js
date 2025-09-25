@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-//import { Matrix } from '../src/matrix.js';
+import { Matrix } from '../index.js';
 
 describe('Matrix Library - TDD Approach', function() {
     
