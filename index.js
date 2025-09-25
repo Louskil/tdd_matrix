@@ -26,6 +26,7 @@ export class Matrix {
     }
 
     subtract(other) {
+        this._validateDimensions(other);
         const result = new Matrix(this.rows, this.cols);
         for (let i = 0; i < this.rows; i++) {
             for (let j = 0; j < this.cols; j++) {
@@ -51,5 +52,37 @@ export class Matrix {
             }
         }
         return result;
+    }
+
+    determinant() {
+        if (this.rows !== this.cols) throw new Error('Matrix must be square');
+        if (this.rows === 2) {
+            return this.data[0][0] * this.data[1][1] - this.data[0][1] * this.data[1][0];
+        }
+        // Реалізація для більших матриць...
+    }
+    
+    transpose() {
+        const result = new Matrix(this.cols, this.rows);
+        for (let i = 0; i < this.rows; i++) {
+            for (let j = 0; j < this.cols; j++) {
+                result.data[j][i] = this.data[i][j];
+            }
+        }
+        return result;
+    }
+    
+    _validateDimensions(other) {
+        if (this.rows !== other.rows || this.cols !== other.cols) {
+            throw new Error('Matrices dimensions must match');
+        }
+    }
+    
+    static identity(size) {
+        const matrix = new Matrix(size, size, 0);
+        for (let i = 0; i < size; i++) {
+            matrix.data[i][i] = 1;
+        }
+        return matrix;
     }
 }
