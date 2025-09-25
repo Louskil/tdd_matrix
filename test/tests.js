@@ -24,4 +24,16 @@ describe('Matrix Operations', function() {
         expect(result.get(0, 0)).to.equal(6);
         expect(result.get(0, 1)).to.equal(8);
     });
+
+    it('should multiply two matrices correctly', function() {
+    const A = new Matrix(2, 3);
+    const B = new Matrix(3, 2);
+    A.data = [[1, 2, 3], [4, 5, 6]];
+    B.data = [[7, 8], [9, 10], [11, 12]];
+    
+    const result = A.multiply(B);
+    expect(result.get(0, 0)).to.equal(58);
+    expect(result.rows).to.equal(2);
+    expect(result.cols).to.equal(2);
+    });
 });
