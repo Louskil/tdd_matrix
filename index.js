@@ -10,4 +10,18 @@ export class Matrix {
     get(row, col) {
         return this.data[row][col];
     }
+
+    add(other) {
+        if (this.rows !== other.rows || this.cols !== other.cols) {
+            throw new Error('Matrices dimensions must match');
+        }
+        
+        const result = new Matrix(this.rows, this.cols);
+        for (let i = 0; i < this.rows; i++) {
+            for (let j = 0; j < this.cols; j++) {
+                result.data[i][j] = this.data[i][j] + other.data[i][j];
+            }
+        }
+        return result;
+    }
 }
