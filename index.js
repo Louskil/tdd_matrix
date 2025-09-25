@@ -24,4 +24,33 @@ export class Matrix {
         }
         return result;
     }
+
+    subtract(other) {
+        this._validateDimensions(other);
+        const result = new Matrix(this.rows, this.cols);
+        for (let i = 0; i < this.rows; i++) {
+            for (let j = 0; j < this.cols; j++) {
+                result.data[i][j] = this.data[i][j] - other.data[i][j];
+            }
+        }
+        return result;
+    }
+    
+    multiply(other) {
+        if (this.cols !== other.rows) {
+            throw new Error('Invalid dimensions for multiplication');
+        }
+        
+        const result = new Matrix(this.rows, other.cols);
+        for (let i = 0; i < this.rows; i++) {
+            for (let j = 0; j < other.cols; j++) {
+                let sum = 0;
+                for (let k = 0; k < this.cols; k++) {
+                    sum += this.data[i][k] * other.data[k][j];
+                }
+                result.data[i][j] = sum;
+            }
+        }
+        return result;
+    }
 }
