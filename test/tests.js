@@ -12,3 +12,16 @@ describe('Matrix Library - TDD Approach', function() {
         });
     });
 });
+
+describe('Matrix Operations', function() {
+    it('should add two matrices correctly', function() {
+        const A = new Matrix(2, 2);
+        const B = new Matrix(2, 2);
+        A.data = [[1, 2], [3, 4]];
+        B.data = [[5, 6], [7, 8]];
+        
+        const result = A.add(B);
+        expect(result.get(0, 0)).to.equal(6);
+        expect(result.get(0, 1)).to.equal(8);
+    });
+});
