@@ -11,7 +11,7 @@ describe('Matrix Library - TDD Approach', function() {
             expect(matrix.get(0, 0)).to.equal(0);
         });
     });
-});
+
 
     let matrixA, matrixB;
     
@@ -22,7 +22,7 @@ describe('Matrix Library - TDD Approach', function() {
         matrixB.data = [[5, 6], [7, 8]];
     });
 
-describe('Basic Operations', function() {
+    describe('Basic Operations', function() {
         it('should add matrices', function() {
             const result = matrixA.add(matrixB);
             expect(result.data).to.deep.equal([[6, 8], [10, 12]]);
@@ -43,3 +43,16 @@ describe('Basic Operations', function() {
             expect(result.data).to.deep.equal([[58, 64], [139, 154]]);
         });
     });
+
+    describe('Advanced Operations', function() {
+        it('should calculate determinant', function() {
+            const det = matrixA.determinant();
+            expect(det).to.equal(-2);
+        });
+        
+        it('should transpose matrix', function() {
+            const result = matrixA.transpose();
+            expect(result.data).to.deep.equal([[1, 3], [2, 4]]);
+        });
+    });
+});
