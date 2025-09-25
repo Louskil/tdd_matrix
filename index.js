@@ -26,7 +26,6 @@ export class Matrix {
     }
 
     subtract(other) {
-        this._validateDimensions(other);
         const result = new Matrix(this.rows, this.cols);
         for (let i = 0; i < this.rows; i++) {
             for (let j = 0; j < this.cols; j++) {
